@@ -3,13 +3,13 @@ package String.easy;
 import java.util.*;
 
 public class SortByFrequency {
-    public static Set<Character> find(String s) {
-        int alpha[]=new int[26];
+    public static String find(String s) {
+        int alpha[]=new int[128];
         for(char ch:s.toCharArray()){
-            alpha[ch-'a']++;
+            alpha[ch]++;
         }
         List<int[]>list=new ArrayList<>();
-        for (int i = 0; i < 26; i++) {
+        for (int i = 0; i < 128; i++) {
             if(alpha[i]>0){
                 list.add(new int[]{i,alpha[i]});
             }
@@ -19,20 +19,20 @@ public class SortByFrequency {
         StringBuilder str=new StringBuilder();
         for(int i[]:list){
             while(i[1]-->0){
-                str.append((char)(i[0]+'a'));
+                str.append((char)(i[0]));
             }
         }
-        LinkedHashSet<Character> set=new LinkedHashSet<>();
+        Set<Character> set=new HashSet<>();
         for(int i=0;i<str.length();i++){
             set.add(str.charAt(i));
         }
 
-return set;
+return str.toString();
 
     }
 
     public static void main(String[] args) {
-        System.out.println(find("tree"));
+        System.out.println(find("pABBB"));
 
 
     }
