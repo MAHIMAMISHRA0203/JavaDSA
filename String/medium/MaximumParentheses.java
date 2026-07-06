@@ -1,4 +1,4 @@
-package String.easy;
+package String.medium;
 
 public class MaximumParentheses {
     public static int calculate(String s) {
